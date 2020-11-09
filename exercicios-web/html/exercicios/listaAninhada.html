@@ -2,11 +2,11 @@
 
 <ul class="tree">
   <li class="">
-    <a href class="back" onclick="myFunction()">backend</a> 
-    <ul id="backFiles">
+    <a href id="back" >backend</a> 
+    <ul>
       <li>
         <a href class="app">app</a>
-        <ul class="appFiles">
+        <ul class="app" id="appFiles">
           <li>produto.js</li>
           <li>usuario.js</li>
           <li>venda.js</li>
@@ -40,30 +40,41 @@
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
 
 <script>
-  function myFunction(e) {
-    e.preventDefault() 
-    var x = document.getElementById("backFiles");
-    if (x.style.display === "none") {
-      x.style.display = "block";
+  document.getElementById("back").addEventListener("click", function(e){
+  event.preventDefault() 
+  console.log("Estou funcionando")
+  document.getElementsByClassName("app").forEach(element => {
+    if (element.style.display === "none") {
+      element.style.display = "block";
     } else {
-      x.style.display = "none";
+      element.style.display = "none";
     }
-  }
+    
+  });
+  });
+  // function (e) {
+  //   e.preventDefault() 
+  //   var x = document.getElementById("backFiles");
+  //   if (x.style.display === "none") {
+  //     x.style.display = "block";
+  //   } else {
+  //     x.style.display = "none";
+  //   }
+  // }
 
-  const x = document.getElementsByClassName('backFiles')
+  // const x = document.getElementsByClassName('backFiles')
   
-  document.querySelectorAll('[wm-nav]').forEach(link => {
-      const conteudo = document.getElementById('conteudo')
-      
-      link.onclick = function(e) {
-        e.preventDefault()  
-        fetch(link.getAttribute('wm-nav'))
-          .then(resp => resp.text())
-          .then(html => conteudo.innerHTML = html)
-      }
-    })
+  // document.querySelectorAll('[wm-nav]').forEach(link => {
+  //   const conteudo = document.getElementById('conteudo')
+    
+  //   link.onclick = function(e) {
+  //     e.preventDefault()  
+  //     fetch(link.getAttribute('wm-nav'))
+  //       .then(resp => resp.text())
+  //       .then(html => conteudo.innerHTML = html)
+  //   }
+  // })
 
-    document.getElementById("myAnchor").addEventListener("click", function(event){
-  event.preventDefault()
-});
+  // document.getElementById("myAnchor").addEventListener("click", function(event){
+  // event.preventDefault() });
 </script>
