@@ -4,17 +4,17 @@
   <li class="">
     <a href id="back" >backend</a> 
     <ul>
-      <li>
-        <a href class="app">app</a>
-        <ul class="app" id="appFiles">
+      <li id="back-child-app">
+        <a href id="app">app</a>
+        <ul id="appFiles">
           <li>produto.js</li>
           <li>usuario.js</li>
           <li>venda.js</li>
         </ul>
       </li>
-      <li>
-        <a href class="config">config</a>
-        <ul class="configFiles">
+      <li id="back-child-config">
+        <a href id="config">config</a>
+        <ul id="configFiles">
           <li>banco.js</li>
           <li>rotas.js</li>
           <li>servidor.js</li>
@@ -23,11 +23,11 @@
     </ul>
   </li>
   <li>
-    <a href class="front">frontend</a>
+    <a href id="front">frontend</a>
     <ul>
-      <li>
-        <a href class="public"></a>
-        <ul>
+      <li id="front-child-public">
+        <a href id="public">public</a>
+        <ul id="publicFiles">
           <li>app.css</li>
           <li>app.js</li>
           <li>index.html</li>
@@ -41,40 +41,60 @@
 
 <script>
   document.getElementById("back").addEventListener("click", function(e){
-  event.preventDefault() 
-  console.log("Estou funcionando")
-  document.getElementsByClassName("app").forEach(element => {
-    if (element.style.display === "none") {
-      element.style.display = "block";
+    e.preventDefault() 
+    const app = document.getElementById("back-child-app")
+    const config = document.getElementById("back-child-config")
+
+    if (app.style.display === "none") {
+      app.style.display = "block";
+      config.style.display = "block";
     } else {
-      element.style.display = "none";
+      app.style.display = "none";
+      config.style.display = "none";
     }
-    
   });
+
+  document.getElementById("app").addEventListener("click", function(e){
+    e.preventDefault() 
+    const appFiles = document.getElementById("appFiles")
+
+    if (appFiles.style.display === "none") {
+      appFiles.style.display = "block";
+    } else {
+      appFiles.style.display = "none";
+    }
   });
-  // function (e) {
-  //   e.preventDefault() 
-  //   var x = document.getElementById("backFiles");
-  //   if (x.style.display === "none") {
-  //     x.style.display = "block";
-  //   } else {
-  //     x.style.display = "none";
-  //   }
-  // }
 
-  // const x = document.getElementsByClassName('backFiles')
-  
-  // document.querySelectorAll('[wm-nav]').forEach(link => {
-  //   const conteudo = document.getElementById('conteudo')
-    
-  //   link.onclick = function(e) {
-  //     e.preventDefault()  
-  //     fetch(link.getAttribute('wm-nav'))
-  //       .then(resp => resp.text())
-  //       .then(html => conteudo.innerHTML = html)
-  //   }
-  // })
+  document.getElementById("config").addEventListener("click", function(e){
+    e.preventDefault() 
+    const configFiles = document.getElementById("configFiles")
 
-  // document.getElementById("myAnchor").addEventListener("click", function(event){
-  // event.preventDefault() });
+    if (configFiles.style.display === "none") {
+      configFiles.style.display = "block";
+    } else {
+      configFiles.style.display = "none";
+    }
+  });
+
+  document.getElementById("front").addEventListener("click", function(e){
+    e.preventDefault() 
+    const public = document.getElementById("front-child-public")
+
+    if (public.style.display === "none") {
+      public.style.display = "block";
+    } else {
+      public.style.display = "none";
+    }
+  });
+
+  document.getElementById("public").addEventListener("click", function(e){
+    e.preventDefault() 
+    const publicFiles = document.getElementById("publicFiles")
+
+    if (publicFiles.style.display === "none") {
+      publicFiles.style.display = "block";
+    } else {
+      publicFiles.style.display = "none";
+    }
+  });
 </script>
