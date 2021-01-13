@@ -7,10 +7,88 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        /* sOLUÇÃO DO PROFESSOR */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
         }
-        
+
+        .cabecalho {
+            background-color: #333;
+            border-bottom: solid 5px #4faddb;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px; 
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .cabecalho a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 1.3em;
+        }
+
+        .menu a {
+            padding: 15px;
+        }
+
+        .autenticacao {
+            float: right;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color: #000;
+        }
+
+        /* MINHA SOLUÇÃO */
+        /* body {
+            margin: 0;
+        }
+
         .logo,
         .menu-toggle,
         .menu,
@@ -19,7 +97,7 @@
         ul {
             display: inline;
         }
-        
+
         .menu-toggle {
             display: none;
             color: rgb(161, 161, 161);
@@ -28,17 +106,17 @@
             margin: 2px 10px;
             border: solid 2px #777;
             border-radius: 5px;
-            background: rgba(80, 77, 77);
+            background: #504d4d;
         }
-        
+
         .cabecalho {
-            background-color: rgb(27, 26, 26);
+            background-color: #1b1a1a;
             height: 50px;
             border-bottom: solid 3px rgb(0, 186, 192);
             padding-top: 10px;
             padding-left: 10px;
         }
-        
+
         li a {
             position: relative;
             text-decoration: none;
@@ -47,50 +125,93 @@
             padding: 10px;
             bottom: 10px;
         }
-        
+
         li a:hover {
-            background: rgb(0, 186, 192);
+            background: #00bac0;
         }
-        
+
         .autenticacao {
             float: right;
             margin-top: 10px;
         }
-        
+
         .autenticacao a {
             text-decoration: none;
             color: #fff;
             font-family: Oswald;
         }
-        
+
         .botao {
             padding: 5px 15px;
             border-radius: 25px;
             margin: 0px 5px;
         }
-        
+
         .destaque {
             background: red;
         }
-        
+
         @media (max-width: 1000px) {
             .autenticacao {
                 display: none;
             }
         }
-        
+
         @media (max-width: 600px) {
             .menu {
                 display: none;
             }
+
             .menu-toggle {
                 display: inline;
             }
-        }
+        } */
     </style>
 </head>
 
 <body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo"/>
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    Minha solução
+
+    <body>
     <header class="cabecalho">
         <div class="logo">
             <a href="#inicio">
@@ -122,17 +243,23 @@
         </aside>
     </header>
 
-    <script>
-        let inicio = window.document.getElementsByTagName('li')[0]
-        window.addEventListener('hashchange', function() {
-            if (location.hash === '#inicio') {
-                inicio.style = 'background: red;'
-            }
+        <script>
+        let inicio = window.document.getElementsByTagName('li')[0].getElementsByTagName('a')[0];
+        let cursos = window.document.getElementsByTagName('li')[1].getElementsByTagName('a')[0];
+        let sobre = window.document.getElementsByTagName('li')[2].getElementsByTagName('a')[0];
+        let contato = window.document.getElementsByTagName('li')[3].getElementsByTagName('a')[0];
+        let menu = [inicio, cursos, sobre, contato];
+
+        window.addEventListener('hashchange', function () {
+            menu.forEach(link => {
+                link.style = 'background: #1b1a1a;';
+
+                if (location.hash === link.hash) {
+                    link.style = 'background: #00bac0;'
+                }
+
+            });
 
         }, false);
-
-        //  || location.hash === '#cursos' || location.hash === '#sobre' || location.hash === '#contato'
     </script>
-</body>
-
-</html>
+ -->
