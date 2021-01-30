@@ -7,7 +7,58 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
+
+        /* Solução do professor */
+
+        .curso {
+            /* float: left; */
+            display: inline-block;
+            vertical-align: top;
+            font-family: Verdana, sans-serif;
+            border: solid 1px #ccc;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+            height: 300px;
+            width: 260px;
+            margin: 5px 20px;
+            padding: 5px;
+        }
+
+        .curso img {
+            width: 100%;
+            max-height: 50%;
+        }
+
+        .curso-info {
+            padding: 10px;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .curso-info h4 {
+            font-size: 1.4em;
+            font-weight: 100;
+            margin: 0;
+        }
+
+        .curso-preco {
+            float: right;
+            padding: 10px;
+        }
+
+        .preco-de {
+            text-decoration: line-through;
+            color: firebrick;
+        }
+
+        .preco-por {
+            color: green;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        /* Minha solução */
+
+        /* * {
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
@@ -54,7 +105,6 @@
         .curso-preco {
             display: flex;
             justify-content: flex-end;
-            
         }
 
         .curso-preco > :nth-child(1) {
@@ -68,7 +118,7 @@
             color: green;
             font-size: 1.2em;
             font-weight: 900;
-        }
+        } */
 
     </style>
 </head>
